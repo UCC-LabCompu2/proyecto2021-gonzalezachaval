@@ -5,29 +5,64 @@
     <title>PROBLEMAS DE ENCUENTRO EN MRU Y MRUV</title>
     <meta content="Alejandro Gonzalez Achaval" name="autor">
     <meta content="Web sobre problemas de encuentro en MRU y MRUV" name="descripcion">
+    <meta content="HTML,CSS" name="Keywords">
     <title>proyectos2021-GonzalezAchaval</title>
     <link rel="stylesheet" href="proyecto2021.css">
 </head>
+
+
 <main>
     <body>
         <header>
-            <h1>
+            <h1 id="principal">
                 PROBLEMAS DE ENCUENTRO EN MRU Y MRUV
             </h1>
-            <img src="imagenes/newton.png">
+            <img src="imagenes/newton.png" alt="Imagen de Isaac Newton">
         </header>
+        <nav>
             <p>
-                Elija si desea trabajar con MRU o con MRUV:
-                <select name="Seleccionar si desea trabajar con MRU o MRUV">
-                    <option value="MRU">MRU</option>
-                    <option value="MRUV">MRUV</option>
-                </select>
+                Elija si desea trabajar con MRU o MRUV:
             </p>
+            <ol class="nav">
+                <li>
+                    <button class="button">
+                        <h2>
+                            MRU
+                        </h2>
+                    </button>
+                </li>
+                <li>
+                    <button class="button">
+                        <h2>
+                            MRUV
+                        </h2>
+                    </button>
+                </li>
+            </ol>
+        </nav>
+        <section class="padre">
+            <ul>
+                <li class="columna">
+                    Velocidad del primer vehiculo:
+                </li>
+                <li class="columna">
+                    Posicion del primer vehiculo:
+                </li>
+                <li class="columna">
+                    Velocidad del segundo vehiculo:
+                </li>
+                <li class="columna">
+                    Posicion del segundo vehiculo:
+                </li>
+        </section>
+
+        </p>
+        <i>
+            <small>Ante algun inconveniente comunicarse con el numero #351-7885604 para que nuestro equipo tecnico lo ayude</small>
+        </i>
         <canvas id="img_tules">
             El navegador no soporta canvas
         </canvas>
     </body>
-
 </main>
-
 </html>

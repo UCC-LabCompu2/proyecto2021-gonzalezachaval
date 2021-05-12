@@ -1,12 +1,38 @@
 main{
-    background: pink;
+    background: #79f5cb;
     padding: 20px;
 }
-h1{
-    margin-top: 5px;
-    color: #00ffd9;
+#principal{
+    color: tomato;
+    margin: 20px;
     background: white;
+    padding: 10px;
 }
 img{
     margin-right: 70px;
+}
+nav{
+    background: aqua;
+    padding: 5px;
+    font-size: 20px;
+    justify-content: space-around;
+}
+.columna {
+    background: #8cc6c6;
+    padding: 20px;
+    width: 50%;
+    margin: 10px;
+}
+.padre{
+    display: flex;
+}
+button{
+    background: #63fac1;
+    color: #cb9a9a;
+}
+button:hover{
+    background: #64d2ad;
+}
+button:active{
+    background: aqua;
 }
