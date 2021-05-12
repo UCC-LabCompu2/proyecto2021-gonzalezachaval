@@ -1,4 +1,12 @@
+main{
+    background: pink;
+    padding: 20px;
+}
 h1{
-    color: #37ff00;
-    background: aliceblue;
+    margin-top: 5px;
+    color: #00ffd9;
+    background: white;
+}
+img{
+    margin-right: 70px;
 }
