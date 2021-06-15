@@ -8,7 +8,7 @@
 |  Email  | Número de teléfono |
 |---------|--------------------|
 | 2008570@edu.com.ar | 351-7885604 |
-| 2008570@edu.com.ar | 351-3950227 |
+| 1925410@edu.com.ar | 351-3950227 |
 
 ## Descripción:  
 Trabajo de Laboratorio de Computación II enfocado en ejercicios de colisión y encuentro en MRU y MRUV.
