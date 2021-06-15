@@ -1,26 +1,53 @@
-main{
-    background: #79f5cb;
-    padding: 20px;
+body{
+    background-color: #396edb;
+    background-image: url("imagenes/fisica.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: scroll;
 }
 #principal{
-    color: tomato;
-    margin: 20px;
-    background: white;
-    padding: 10px;
+    color: #fc6146;
+    background: #06245c;
+    text-align:center;
+    font-size: 50px;
+
 }
 img{
-    margin-right: 70px;
+    margin: 10px 5px 10px;
+    width: 100px;
+    height: 80px;
+    vertical-align: middle;
+    padding-bottom: 10px;
 }
 nav{
-    background: aqua;
-    padding: 5px;
+    background: #12b2e2;
+    margin: 10px;
+    padding: 5px ;
     font-size: 20px;
     justify-content: space-around;
 }
+h1{
+    margin: 10px;
+}
+b{
+    font-size: 30px;
+    color: #eaeef5;
+    margin: 10px;
+}
+p{
+    margin: 10px;
+}
+section{
+    background-color: #06245c;
+    display: flex;
+    margin: 10px;
+    margin-right: 800px;
+    padding:10px;
+}
 .columna {
-    background: #8cc6c6;
-    padding: 20px;
-    width: 50%;
+    background: #86c0c0;
+    padding: 20px 20px 20px;
+    width: 55%;
     margin: 10px;
 }
 .padre{
@@ -34,5 +61,25 @@ button:hover{
     background: #64d2ad;
 }
 button:active{
-    background: aqua;
+    background: #73d9d9;
+}
+footer{
+    padding-top: 70px;
+    margin: 10px;
+}
+#unico{
+    background: #f6f6de;
+    color: #71d9b6;
+}
+#unico:hover{
+    background: #f5f579;
+}
+#unico:active{
+    background: #198662;
+}
+.limpiar{
+    background: #8e8d8d;
+}
+.limpiar:hover{
+    background: #fcfcdc;
 }
