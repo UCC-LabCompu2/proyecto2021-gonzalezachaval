@@ -11,8 +11,8 @@
 | 1925410@edu.com.ar | 351-3950227 |
 
 ## Descripción:  
-Trabajo de Laboratorio de Computación II enfocado en ejercicios de colisión y encuentro en MRU y MRUV.
+Trabajo de Laboratorio de Computación II enfocado en ejercicios de encuentro en MRU y MRUV.
 
-Ejercicios en HTML, CSS Y JS para Laboratorio de Computacion II.
+Las herramientas utilizadas para desarrollar este trabajo fueron: HTML, CSS Y JS.
 
-Link al sitio: [Ejercicios de encuentro en MRU y MRUV](https://github.com/UCC-LabCompu2/proyecto2021-gonzalezachaval/blob/main/index.html)
+Link al sitio: [Trabajo Práctico de Laboratorio de Computación II](https://github.com/UCC-LabCompu2/proyecto2021-gonzalezachaval/blob/main/index.html)
