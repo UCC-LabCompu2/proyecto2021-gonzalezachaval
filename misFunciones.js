@@ -185,14 +185,183 @@ function mru_active(){
     mov = ("mru")
     return mov;
 }
+
 /*
-*   Funcion para aplicar formula de mru o mruv segun eleccion del usuario
-*   @method mru_or_mruv
-*   @param (function) all_mruv - formulas de mruv
-*   @param (function) all_mru - formulas de mru
+*   Funcion para activar aceleracion en MRUV
+*    @method mruv_active
+*    @return
 */
-function mru_or_mruv(){
-    document.getElementById("button1").addEventListener("click", all_mru());
-    document.getElementById("button2").addEventListener("click", all_mruv());
-    alert("se calculo");
+function mruv_active(){
+
+    document.getElementById("aceleracion1").setAttribute("value" , "");
+    document.getElementById("aceleracion1").removeAttribute("readonly");
+    document.getElementById("aceleracion2").setAttribute("value" , "");
+    document.getElementById("aceleracion2").removeAttribute("readonly");
+    var mov;
+    mov = ("mruv")
+    return mov;
+}
+
+/*
+*    Funcion para pasaje de unidades de velocidad
+*    @method pasaje_uni_vel
+*    @param (number) vel1 - valor de velocidad
+*    @param (string) select_vel - unidad elegida en select
+*    @return (number) velocidad - valor de velocidad en m/s
+*/
+function pasaje_uni_vel(vel, select_vel){
+    var velocidad;
+    if (select_vel == "km/h"){
+        velocidad = vel * (0.277778);
+    }
+    else {
+        velocidad = vel
+    }
+    return velocidad;
+}
+
+/*
+*    Funcion para pasaje de unidades de aceleracion
+*    @method pasaje_uni_acel
+*    @param (number) acel1 - valor de aceleracion
+*    @param (string) select_acel - unidad elegida en select
+*    @return (number) aceleracion - valor de aceleracion en m/s2
+*/
+function pasaje_uni_acel(acel, select_acel){
+    var aceleracion;
+    if (select_acel == "km/h2"){
+        aceleracion = acel * 1000;
+    }
+    else {
+        aceleracion = acel
+    }
+    return aceleracion;
+}
+
+/*
+*    Funcion para pasaje de unidades de posicion
+*    @method pasaje_uni_pos
+*    @param (number) pos1 - valor de posicion
+*    @param (string) select_pos - unidad elegida en select
+*    @return (number) posicion - valor de posicion en m
+*/
+function pasaje_uni_pos(pos, select_pos){
+    var posicion;
+    if (select_pos == "km"){
+        posicion = pos * 1000;
+    }
+    else {
+        posicion = pos
+    }
+    return posicion;
+}
+
+/*
+*    Funcion para pasaje de unidades de tiempo
+*    @method pasaje_uni_ti
+*    @param (number) vel1 - valor de tiempo
+*    @param (string) select_ti - unidad elegida en select
+*    @return (number) tiempo -  valor de tiempo en segundos
+*/
+function pasaje_uni_ti(tiem, select_tiem){
+    var tiempo;
+    if (select_tiem == "h"){
+        tiempo = tiem * 3600;
+    }
+    else {
+        tiempo = tiem
+    }
+    return tiempo;
+}
+
+/*
+*    Funcion para calculo de encuentro de movil 1 en mru
+*    @method encuentro_mru1()
+*    @return (number) posicion_final_mru_1 - posicion final del movil 1 en m
+*/
+function encuentro_mru1(){
+    var posicion_final_mru_1;
+    var posicion_mru_1 = pasaje_uni_pos(get_pos1(), get_sel_pos1());
+    var velocidad_mru_1 = pasaje_uni_vel(get_vel1(), get_sel_vel1());
+    var tiempo_mru_1 = pasaje_uni_ti(get_tiem1(), get_sel_tiem1());
+    posicion_final_mru_1 = (velocidad_mru_1*tiempo_mru_1) + posicion_mru_1;
+    return posicion_final_mru_1;
+}
+
+/*
+*    Funcion para calculo de encuentro de movil 2 en mru
+*    @method pasaje_uni_pos
+*    @return (number) posicion_final_mru_2 - posicion final del movil 2 en m
+*/
+function encuentro_mru2(){
+    var posicion_final_mru_2;
+    var posicion_mru_2 = pasaje_uni_pos(get_pos2(), get_sel_pos2());
+    var velocidad_mru_2 = pasaje_uni_vel(get_vel2(), get_sel_vel2());
+    var tiempo_mru_2 = pasaje_uni_ti(get_tiem2(), get_sel_tiem2());
+    posicion_final_mru_2 = posicion_mru_2 + (velocidad_mru_2*tiempo_mru_2);
+    return posicion_final_mru_2;
+}
+
+/*
+*    Funcion para calculo de encuentro de movil 1 en mruv
+*    @method encuentro_mruv1
+*    @return (number) posicion_final_mruv_1 - posicion final del movil 1 en m
+*/
+function encuentro_mruv1(){
+    var posicion_final_mruv_1;
+    var posicion_mruv_1 = pasaje_uni_pos(get_pos1(), get_sel_pos1())
+    var velocidad_mruv_1 = pasaje_uni_vel(get_vel1(), get_sel_vel1())
+    var tiempo_mruv_1 = pasaje_uni_ti(get_tiem1(), get_sel_tiem1())
+    var aceleracion_mruv_1 = pasaje_uni_acel(get_acel1(), get_sel_acel1())
+    posicion_final_mruv_1 = posicion_mruv_1 + (velocidad_mruv_1*tiempo_mruv_1) + ((1/2*aceleracion_mruv_1)*(tiempo_mruv_1*tiempo_mruv_1));
+    return posicion_final_mruv_1;
+}
+
+/*
+*    Funcion para calculo de encuentro de movil 2 en mruv
+*    @method encuentro_mruv2()
+*    @return (number) posicion_final_mruv_2 - posicion final del 2 movil en m
+*/
+function encuentro_mruv2(){
+    var posicion_final_mruv_2;
+    var posicion_mruv_2 = pasaje_uni_pos(get_pos2(), get_sel_pos2())
+    var velocidad_mruv_2 = pasaje_uni_vel(get_vel2(), get_sel_vel2())
+    var tiempo_mruv_2 = pasaje_uni_ti(get_tiem2(), get_sel_tiem2())
+    var aceleracion_mruv_2 = pasaje_uni_acel(get_acel2(), get_sel_acel2())
+    posicion_final_mruv_2 = posicion_mruv_2 + (velocidad_mruv_2*tiempo_mruv_2) + ((1/2*aceleracion_mruv_2)*(tiempo_mruv_2*tiempo_mruv_2));
+    return posicion_final_mruv_2;
+}
+
+/*
+*   Funcion para aplicar formula de mru y conseguir la posicion final de ambos moviles
+*   @method final_mru()
+*   return (number) resultado_mru_1 - resultado de posicion final del movil 1 en m
+*   return (number) resultado_mru_2 - resultado de posicion final del movil 2 en m
+*/
+function final_mru(){
+    var resultado_mru_1
+    var resultado_mru_2
+    resultado_mru_1 = encuentro_mru1();
+    resultado_mru_2 = encuentro_mru2();
+    console.log(resultado_mru_1)
+    console.log(resultado_mru_2)
+    alert("Posicion Movil 1 MRU:  " + resultado_mru_1 + "m"+ "       " + "Posicion Movil 2 MRU:  " + resultado_mru_2 + "m")
+    return resultado_mru_1, resultado_mru_2;
+}
+
+/*
+*   Funcion para aplicar formula de mru y conseguir la posicion final de ambos moviles
+*   @method final_mruv()
+*   return (number) resultado_mruv_1 - resultado de posicion final del movil 1 en m
+*   return (number) resultado_mruv_2 - resultado de posicion final del movil 2 en m
+*/
+function final_mruv(){
+    var resultado_mruv_1
+    var resultado_mruv_2
+    resultado_mruv_1 = encuentro_mruv1();
+    resultado_mruv_2 = encuentro_mruv2();
+    console.log(resultado_mruv_1)
+    console.log(resultado_mruv_2)
+    alert("Posicion Movil 1 MRUV:  " + resultado_mruv_1 + "m"+ "       " + "Posicion Movil 2 MRUV:  " + resultado_mruv_2 + "m")
+    return resultado_mruv_1, resultado_mruv_2;
 }
