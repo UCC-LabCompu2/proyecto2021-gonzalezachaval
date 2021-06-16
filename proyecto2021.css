@@ -81,5 +81,13 @@ footer{
     background: #8e8d8d;
 }
 .limpiar:hover{
-    background: #fcfcdc;
+    background: #0cf8f8;
+}
+aside{
+    padding-left: 750px;
+
+}
+.encuentro{
+    border: #143628;
+    background: #0CF8F8FF;
 }
