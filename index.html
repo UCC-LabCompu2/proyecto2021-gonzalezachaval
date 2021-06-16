@@ -9,10 +9,11 @@
     <meta content="HTML,CSS,JS,MRU,MRUV,Física" name="Keywords">
     <title>proyectos2021-GonzalezAchaval-Spinelli</title>
     <link rel="stylesheet" href="proyecto2021.css">
+    <script type="text/javascript" src="misFunciones.js"></script>
 </head>
 <!-- Este programa sirve para realizar ejericios de colision y encuentro en MRU y MRUV-->
 
-<body>
+<body onload="dibujar()">
 <main>
     <header>
         <!-- Titulo principal-->
@@ -27,13 +28,13 @@
             Elija el tipo de Movimiento Rectilineo:
         </p>
         <!--Listas ordenadas para seleccionar si se desea trabajar con MRU o MRUV-->
-        <button class="button">
-            <h2>
+        <button class="button" id="button1" onclick="mru_active();">
+            <h2 >
                 MRU
             </h2>
         </button>
-        <button class="button">
-            <h2>
+        <button class="button" id="button2" onclick="mruv_active();">
+            <h2 >
                 MRUV
             </h2>
         </button>
@@ -48,28 +49,40 @@
                     Móvil 1
                 </b>
                 <li class="columna">
-                    <label for="Velocidad1">Velocidad: </label><input type="number" placeholder="Ingrese un valor" id="Velocidad1">
-                    <select>
+                    <label for="Velocidad1">Velocidad: </label><input type="number" placeholder="Ingrese un valor" id="Velocidad1" step="0.01" >
+                    <select name="select_vel1">
                         <option value="Km/h"> km/h </option>
                         <option value="m/s"> m/s </option>
                     </select>
 
                 </li>
 
+
                 <li class="columna">
-                    <label for="Posicion1">Posición: </label><input type="number" placeholder="Ingrese un valor" id="Posicion1">
-                    <select>
-                        <option value="Km"> km </option>
+                    <label for="posicion1" >Posición: </label><input type="number" placeholder="Ingrese un valor" id="posicion1" min="0.1" step="0.01" >
+                    <select name="select_pos1">
+                        <option value="km"> km </option>
                         <option value="m"> m </option>
                     </select>
                 </li>
 
+
                 <li class="columna">
-                    <label for="Aceleracion1">Aceleración: </label><input type="number" placeholder="Ingrese un valor" id="Aceleracion1">
-                    <select>
-                        <option value="Km/h2"> km/h2 </option>
-                        <option value="m/s2"> m/s2 </option>
+                    <label for="aceleracion1">Aceleración: </label><input type="number" placeholder="Ingrese un valor" id="aceleracion1" step="0.01" >
+                    <select name="select_acel1">
+                        <option label="km/h2" value="km/h2"> km/h2 </option>
+                        <option label="m/s2" value="m/s2"> m/s2 </option>
                     </select>
+                </li>
+
+
+                <li class="columna">
+                    <label for="tiempo1">Tiempo: </label><input type="number" placeholder="Ingrese un valor" id="tiempo1" min="0.1" step="0.01" >
+                    <select name="select_tiem1">
+                        <option label="h" value="h"> h </option>
+                        <option label="s" value="s"> s </option>
+                    </select>
+
                 </li>
             </div>
         </ul>
@@ -80,48 +93,66 @@
                     Móvil 2
                 </b>
                 <li class="columna">
-                    <label for="Velocidad2">Velocidad: </label><input type="number" placeholder="Ingrese un valor" id="Velocidad2">
-                    <select>
-                        <option value="Km/h"> km/h </option>
-                        <option value="m/s"> m/s </option>
+                    <label for="velocidad2">Velocidad: </label><input type="number" placeholder="Ingrese un valor" id="velocidad2" step="0.01">
+                    <select name="select_vel2">
+                        <option label="km/h" value="km/h"> km/h </option>
+                        <option label="m/s" value="m/s"> m/s </option>
                     </select>
                 </li>
 
+
                 <li class="columna">
-                    <label for="Posicion2">Posición: </label><input type="number" placeholder="Ingrese un valor" id="Posicion2">
-                    <select>
-                        <option value="Km"> km </option>
-                        <option value="m"> m </option>
+                    <label for="posicion2">Posición: </label><input type="number" placeholder="Ingrese un valor" id="posicion2" step="0.01">
+                    <select name="select_pos2">
+                        <option label="km" value="Km"> km </option>
+                        <option label="m" value="m"> m </option>
                     </select>
                 </li>
+
+
                 <li class="columna">
-                    <label for="Aceleracion2">Aceleración: </label><input type="number" placeholder="Ingrese un valor" id="Aceleracion2">
-                    <select>
-                        <option value="Km/s2"> km/h2 </option>
-                        <option value="m/s2"> m/s2 </option>
+                    <label for="aceleracion2">Aceleración: </label><input type="number" placeholder="Ingrese un valor" step="0.01" id="aceleracion2">
+                    <select name="select_acel2">
+                        <option label="km/h2" value="km/s2"> km/h2 </option>
+                        <option label="m/s2" value="m/s2"> m/s2 </option>
                     </select>
+                </li>
+
+
+                <li class="columna">
+                    <label for="tiempo2">Tiempo: </label><input type="number" placeholder="Ingrese un valor" id="tiempo2" step="0.01" min="0.1">
+                    <select name="select_tiem2">
+                        <option label="h" value="h"> h </option>
+                        <option label="s" value="s"> s </option>
+                    </select>
+
                 </li>
             </div>
         </ul>
     </section>
 
     <footer>
+
         <button id="unico">
             <h3>
                 Calcular resultado
             </h3>
+
         </button>
 
-        <button id="limpiar">
+        <button id="limpiar" onclick="location.reload()">
             <h5>
                 Limpiar datos
             </h5>
         </button>
     </footer>
 
-    <canvas id="img_colision">
-        El navegador no soporta canvas
-    </canvas>
+    <!--
+    <aside>
+        <canvas id="simulacion" class="encuentro" width="750px" height="600px">
+            El navegador no soporta canvas
+        </canvas>
+    </aside>-->
 
 </main>
 </body>
