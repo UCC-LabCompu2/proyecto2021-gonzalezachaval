@@ -58,11 +58,15 @@ button{
     color: #cb9a9a;
 }
 button:hover{
-    background: #64d2ad;
+    background: #237a62;
 }
 button:active{
-    background: #73d9d9;
+    background: #6f7e7e;
 }
+button:focus{
+    background: #6f7e7e;
+}
+
 footer{
     padding-top: 70px;
     margin: 10px;
@@ -81,13 +85,5 @@ footer{
     background: #8e8d8d;
 }
 .limpiar:hover{
-    background: #0cf8f8;
-}
-aside{
-    padding-left: 750px;
-
-}
-.encuentro{
-    border: #143628;
-    background: #0CF8F8FF;
+    background: #fcfcdc;
 }
